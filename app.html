@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Caco's Chat</title>
+    <link rel="stylesheet" type="text/css" href="jQuery/jquery.mobile-1.1.1.min.css" />
+    <link rel="stylesheet" type="text/css" href="my.css" />
+    <script src="jQuery/jquery.min.js"></script>
+    <script src="jQuery/jquery.mobile-1.1.1.min.js"></script>
+    <script src="jQuery/jquery.validate.min.js"></script>
+    <script src="my.js"></script>
+    <script src="FakeRequire.js"></script>
+    <script src="jQueryMobileChatClient.js"></script>
+  </head>
+  <body>
+    <!-- Chat login -->
+    <div data-role="page" id="page_login">
+      <div data-theme="a" data-role="header">
+        <h3>Caco's Chat</h3>
+      </div>
+      <div data-role="content">
+        <form id="login_form" class="validate">
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+              <label for="chatHost">Server</label>
+              <input name="server" id="chatHost" placeholder="http://127.0.0.1" value="http://127.0.0.1" type="text"  class="required url"/>
+            </fieldset>
+          </div>
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+              <label for="chatPort">Port</label>
+              <input name="port" id="chatPort" placeholder="8888" value="8888" type="text"  class="required digits"/>
+            </fieldset>
+          </div>
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+              <label for="nickname">Nickname</label>
+              <input name="nickname" id="nickname" placeholder="" value="" type="text"  class="required"/>
+            </fieldset>
+          </div>
+          <input data-theme="b" data-icon="check" data-iconpos="left" value="Login" type="submit" />
+         </form>
+      </div>
+    </div>
+    <!-- Chat -->
+    <div data-role="page" id="page_chat">
+      <div data-theme="a" data-role="header">
+        <a data-role="button" data-theme="b"  href="#page_login" data-icon="back" data-iconpos="left" class="ui-btn-left" id="btn_logout">Logout</a>
+        <h3>Chat</h3>
+        <a data-role="button" data-theme="b" href="#page_users" data-icon="forward" data-iconpos="left" class="ui-btn-right" data-rel="dialog" id="btn_users">Users</a>
+      </div>
+      <div data-role="content">
+        <ul data-role="listview" data-theme="c" data-divider-theme="d" id="chat_area" />
+      </div>
+      <div data-theme="a" data-role="footer" data-position="fixed">
+        <form id="chat_form" class="validate">
+        <div data-role="fieldcontain">
+          <fieldset data-role="controlgroup">
+            <label for="chat_message">Message</label>
+            <input name="chat_message" id="chat_message" placeholder="Insert message here" value="" type="text" class="required"/>
+          </fieldset>
+        </div>
+        <input data-theme="b" value="Send" type="submit" />
+        </form>
+        <a data-role="button" data-theme="b" href="#page_nickname" data-icon="forward" data-iconpos="left" class="ui-btn-right" data-rel="dialog">Change name</a>
+      </div>
+    </div>
+    <!-- Chat users -->
+    <div data-role="page" id="page_users">
+      <div data-theme="a" data-role="header">
+        <h3>Users</h3>
+      </div>
+      <div data-role="content" id="chat_area" data-theme="b">
+        <ul data-role="listview" data-theme="c" data-divider-theme="d" id="chat_users" />
+      </div>
+    </div>
+    <!-- change name -->
+    <div data-role="page" id="page_nickname">
+      <div data-theme="a" data-role="header">
+        <h3>Change name</h3>
+      </div>
+      <div data-role="content" data-theme="b">
+        <form id="change_name_form" class="validate">
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+              <input name="new_nickname" id="new_nickname" placeholder="Nickname" value="" type="text"  class="required"/>
+            </fieldset>
+          </div>
+          <input data-icon="check" data-iconpos="left" value="Save" type="submit" />
+         </form>
+      </div>
+    </div>
+    <!-- change name -->
+    <div data-role="page" id="page_private_message">
+      <div data-theme="a" data-role="header">
+        <h3>Private Message</h3>
+      </div>
+      <div data-role="content" data-theme="b">
+        <form id="private_message_form" class="validate">
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup">
+              <input name="private_message" id="private_message" placeholder="Private Message" value="" type="text"  class="required"/>
+            </fieldset>
+          </div>
+          <input data-icon="check" data-iconpos="left" value="Send" type="submit" />
+         </form>
+      </div>
+    </div>
+  </body>
+</html>
